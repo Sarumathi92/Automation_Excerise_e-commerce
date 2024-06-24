@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="mysuite">
+    <test name="mytest">
+        <!--<parameter name="os" value="windows"/>-->
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="Testcases.LoginTestcase"></class>
+        </classes>
+    </test>
+</suite>

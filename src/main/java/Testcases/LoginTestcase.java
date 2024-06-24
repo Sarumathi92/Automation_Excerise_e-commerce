@@ -4,7 +4,7 @@ import Pageobjectclass.HomePage_POM;
 import Pageobjectclass.Login_POM;
 import org.testng.annotations.Test;
 
-@Test
+@Test(priority = 3,groups = {"Sanity"})
 public class LoginTestcase extends Baseclass
 {
     public void Verify_Loginpage()
@@ -19,6 +19,7 @@ public class LoginTestcase extends Baseclass
         LP.txtpwd(p.getProperty("pwd"));
         LP.clicklogin();
         LP.confirmessage();
+        LP.clicklogout();
 
     }
 

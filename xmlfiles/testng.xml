@@ -3,9 +3,10 @@
 <suite name="mysuite">
     <test name="mytest">
         <classes>
-           <!-- <class name="Testcases.HomepageTestcase"></class>-->
-           <class name="Testcases.RegisterTestcase"></class>
-            <!--<class name="Testcases.LoginTestcase"></class>-->
+            <!--<class name="Testcases.HomepageTestcase"></class>-->
+           <!--<class name="Testcases.RegisterTestcase"></class>-->
+            <!-- <class name="Testcases.LoginTestcase"></class> -->
+            <class name="Testcases.TC_004_LoginDDT"></class>
         </classes>
     </test>
 </suite>

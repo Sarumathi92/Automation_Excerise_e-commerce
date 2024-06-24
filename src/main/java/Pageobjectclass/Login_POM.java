@@ -26,7 +26,13 @@ public class Login_POM extends BasePage_Of_POM
     //WebElement Loginsubcriptionmeessage;
 
     @FindBy(xpath = "//a[normalize-space()='Logout']")
-    WebElement Validatelogoutlink;
+    WebElement clicklogoutlink;
+
+    @FindBy(xpath = "//a[normalize-space()='Home']")
+    WebElement Confirmationmessage;
+
+    @FindBy(xpath = "//header[@id='header']//li[5]")
+    WebElement Deleteaccountconfirm;
 
     //Action Method
     public void txtemail(String email)
@@ -41,11 +47,15 @@ public class Login_POM extends BasePage_Of_POM
     {
         click_Login.click();
     }
+    public void clicklogout()
+    {
+        clicklogoutlink.click();
+    }
     public void confirmessage()
     {
-        String conmess=Validatelogoutlink.getText();
+        String conmess=Confirmationmessage.getText();
         System.out.println(conmess);
-        Assert.assertEquals(conmess,"Logout");
+        Assert.assertEquals(conmess,"Home");
         Assert.assertTrue(true);
     }
 

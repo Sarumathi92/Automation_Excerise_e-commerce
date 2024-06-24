@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="mysuite">
+    <test name="mytest">
+        <groups>
+            <run>
+                <!--<include name="testng"/>-->
+                        <include name="Sanity"/>
+                <!--<include name="Regression"/>-->
+            </run>
+        </groups>
+        <classes>
+
+            <!--<class name="Testcases.HomepageTestcase"/>-->
+                <!--<class name="Testcases.RegisterTestcase"/>-->
+            <class name="Testcases.LoginTestcase"/>
+
+        </classes>
+    </test>
+</suite>

@@ -5,7 +5,7 @@ import Pageobjectclass.RegisterPage_POM;
 import org.testng.annotations.Test;
 
 import java.util.Locale;
-@Test
+@Test(groups = {"Regression"})
 public class RegisterTestcase extends Baseclass
 {
     public void Verify_Registerpage()

@@ -3,8 +3,8 @@ package Testcases;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.annotations.*;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -19,17 +19,28 @@ public class Baseclass
     public WebDriver driver; //class variable //declaration
     public Properties p; //declaration
 
-    @BeforeClass
-    public void setup() throws IOException //Local variable
+    @BeforeClass(groups = {"Sanity","Regression"})
+    @Parameters("browser")
+    public void setup( @Optional("chrome")String br) throws IOException //Local variable
     {
-        driver=new ChromeDriver();
-        //initializing property file from config.property file
-        FileReader file=new FileReader("./src//main//resources//config.properties");
-        p=new Properties(); //Initalization
-        p.load(file);
-        driver.get(p.getProperty("appurl"));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
+        switch (br.toLowerCase()) {
+            case "chrome":
+                driver = new ChromeDriver();
+                break;
+            case "edge":
+                driver = new EdgeDriver();
+                break;
+            default:
+                System.out.println("Invalid browser name");
+                return;
+        }
+            //initializing property file from config.property file
+            FileReader file = new FileReader("./src//main//resources//config.properties");
+            p = new Properties(); //Initalization
+            p.load(file);
+            driver.get(p.getProperty("appurl"));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            driver.manage().window().maximize();
     }
 
 
@@ -51,7 +62,7 @@ public class Baseclass
         return(randomname+"@"+"gmail.com");
     }
 
-    @AfterClass
+    @AfterClass(groups = {"Sanity","Regression"})
     public void teardown()
     {
         driver.quit();

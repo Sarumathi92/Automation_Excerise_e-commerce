@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class HomepageTestcase extends Baseclass
 {
-    @Test
+    @Test(priority = 1,groups = {"Sanity"})
    public void verify_Homepage()
    {
        HomePage_POM Hp=new HomePage_POM(driver);
